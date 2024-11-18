@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -116,4 +117,10 @@ public class BlockchainService {
         }
         return path; // Devuelve la ruta para almacenar en la base de datos
     }
+
+    public Optional<Identification> getIdentificationById(Long id) {
+        return identificationRepository.findById(id);
+    }
+
+
 }

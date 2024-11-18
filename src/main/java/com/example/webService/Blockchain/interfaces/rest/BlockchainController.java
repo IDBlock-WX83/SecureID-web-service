@@ -4,9 +4,11 @@ import com.example.webService.Blockchain.domain.model.Block;
 import com.example.webService.Blockchain.domain.model.Identification;
 import com.example.webService.Blockchain.domain.services.BlockchainService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/blockchain")
@@ -63,4 +65,13 @@ public void addIdentification(
        });
        return blockchain;
    }*/
+
+    @GetMapping("/getIdentification/{id}")
+    public ResponseEntity<Identification> getIdentification(@PathVariable Long id) {
+        Optional<Identification> identification = blockchainService.getIdentificationById(id);
+        return identification.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+
 }
