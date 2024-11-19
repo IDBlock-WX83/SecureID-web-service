@@ -59,13 +59,16 @@ public class Identification {
     @Column(name = "dni_posterior", nullable = false)
     private String dniPosterior;
 
+    @Column(name = "foto_perfil", nullable = false)
+    private String fotoPerfil;
+
     @Column(name = "active", nullable = false)
     private boolean active; // Propiedad para indicar si está activa
 
     public Identification(String preNombres, String apellidoPaterno, String apellidoMaterno,
                           String idDigital, String fechaNacimiento, String direccion, String telefono,
                           String region, String provincia, String distrito, String sexo, String firma,
-                          String dniFrontal, String dniPosterior, Boolean active) {
+                          String dniFrontal, String dniPosterior, String fotoPerfil, Boolean active) {
         this.preNombres = preNombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -80,13 +83,14 @@ public class Identification {
         this.firma = firma;
         this.dniFrontal = dniFrontal;
         this.dniPosterior = dniPosterior;
+        this.fotoPerfil = fotoPerfil;
         this.active = active;
     }
 
     public void updateDetails(String preNombres, String apellidoPaterno, String apellidoMaterno,
                               String idDigital, String fechaNacimiento, String direccion, String telefono,
                               String region, String provincia, String distrito, String sexo, String firma,
-                              String dniFrontal, String dniPosterior, Boolean active)  {
+                              String dniFrontal, String dniPosterior, String fotoPerfil, Boolean active)  {
         this.preNombres = preNombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -101,6 +105,7 @@ public class Identification {
         this.firma = firma;
         this.dniFrontal = dniFrontal;
         this.dniPosterior = dniPosterior;
+        this.fotoPerfil = fotoPerfil;
         this.active = active;
     }
 
@@ -112,6 +117,6 @@ public class Identification {
                 ", Teléfono: " + telefono + ", Región: " + region + ", Provincia: " + provincia +
                 ", Distrito: " + distrito + ", Sexo: " + sexo + ", Firma: " + firma +
                 ", DNI Frontal: " + dniFrontal + ", DNI Posterior: " + dniPosterior +
-                ", Activo: " + active;
+                ", Foto Perfil: " + fotoPerfil +", Activo: " + active;
     }
 }
