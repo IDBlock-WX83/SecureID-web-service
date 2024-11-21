@@ -54,6 +54,17 @@ public void addIdentification(
     public List<Block> getBlockchain() {
         return blockchainService.getBlockchain();
     }
+
+    // Nuevo endpoint para buscar por idDigital
+    @GetMapping("/identification/{idDigital}")
+    public Identification getIdentificationByIdDigital(@PathVariable String idDigital) {
+        return blockchainService.findByIdDigital(idDigital);
+    }
+
+    @GetMapping("/identification/exists/{idDigital}")
+    public boolean checkIdentificationExists(@PathVariable String idDigital) {
+        return blockchainService.findByIdDigital(idDigital) != null;
+    }
   /* @GetMapping("/blocks")
    public @ResponseBody List<Block> getBlockchain() {
        List<Block> blockchain = blockchainService.getBlockchain();

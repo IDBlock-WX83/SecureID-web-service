@@ -116,4 +116,9 @@ public class BlockchainService {
         }
         return path; // Devuelve la ruta para almacenar en la base de datos
     }
+
+    public Identification findByIdDigital(String idDigital) {
+        return identificationRepository.findByIdDigital(idDigital)
+                .orElseThrow(() -> new RuntimeException("No se encontró la identificación con idDigital: " + idDigital));
+    }
 }

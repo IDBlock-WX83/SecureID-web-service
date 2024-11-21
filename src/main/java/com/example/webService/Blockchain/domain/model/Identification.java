@@ -49,23 +49,22 @@ public class Identification {
     @Column(name = "sexo", nullable = false)
     private String sexo; // M para masculino, F para femenino, u otro valor adecuado
 
-    @Column(name = "firma", nullable = false)
+   /* @Column(name = "firma", nullable = true)
     private String firma; // URL o path de la firma cargada
 
 
-    @Column(name = "dni_frontal", nullable = false)
+    @Column(name = "dni_frontal", nullable = true)
     private String dniFrontal;
 
-    @Column(name = "dni_posterior", nullable = false)
-    private String dniPosterior;
+    @Column(name = "dni_posterior", nullable = true)
+    private String dniPosterior;*/
 
     @Column(name = "active", nullable = false)
     private boolean active; // Propiedad para indicar si está activa
 
     public Identification(String preNombres, String apellidoPaterno, String apellidoMaterno,
                           String idDigital, String fechaNacimiento, String direccion, String telefono,
-                          String region, String provincia, String distrito, String sexo, String firma,
-                          String dniFrontal, String dniPosterior, Boolean active) {
+                          String region, String provincia, String distrito, String sexo, Boolean active) {
         this.preNombres = preNombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -77,16 +76,18 @@ public class Identification {
         this.provincia = provincia;
         this.distrito = distrito;
         this.sexo = sexo;
-        this.firma = firma;
+       /* this.firma = firma;
         this.dniFrontal = dniFrontal;
-        this.dniPosterior = dniPosterior;
+        this.dniPosterior = dniPosterior;*/
         this.active = active;
     }
 
+
+
+
     public void updateDetails(String preNombres, String apellidoPaterno, String apellidoMaterno,
                               String idDigital, String fechaNacimiento, String direccion, String telefono,
-                              String region, String provincia, String distrito, String sexo, String firma,
-                              String dniFrontal, String dniPosterior, Boolean active)  {
+                              String region, String provincia, String distrito, String sexo, Boolean active)  {
         this.preNombres = preNombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -98,9 +99,6 @@ public class Identification {
         this.provincia = provincia;
         this.distrito = distrito;
         this.sexo = sexo;
-        this.firma = firma;
-        this.dniFrontal = dniFrontal;
-        this.dniPosterior = dniPosterior;
         this.active = active;
     }
 
@@ -110,8 +108,8 @@ public class Identification {
                 ", Apellido Materno: " + apellidoMaterno + ", ID Digital: " + idDigital +
                 ", Fecha de Nacimiento: " + fechaNacimiento + ", Dirección: " + direccion +
                 ", Teléfono: " + telefono + ", Región: " + region + ", Provincia: " + provincia +
-                ", Distrito: " + distrito + ", Sexo: " + sexo + ", Firma: " + firma +
-                ", DNI Frontal: " + dniFrontal + ", DNI Posterior: " + dniPosterior +
+                ", Distrito: " + distrito + ", Sexo: " + sexo  +
+                ", DNI Frontal: " +
                 ", Activo: " + active;
     }
 }
