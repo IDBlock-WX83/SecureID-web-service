@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import com.example.webService.SocialServices.domain.models.SocialServicesType;
 import com.example.webService.SocialServices.domain.services.SocialServicesService;
 import com.example.webService.SocialServices.presentation.dtos.SocialServicesCreateDto;
 import com.example.webService.SocialServices.presentation.dtos.SocialServicesResponseDto;
+import com.example.webService.SocialServices.presentation.dtos.SocialServicesUpdateDto;
 
 @RestController
 @RequestMapping("/api/social-services")
@@ -53,5 +55,13 @@ public class SocialServicesController {
     public ResponseEntity<Void> deleteSocialService(@PathVariable("id") int id) {
         socialServicesService.deleteSocialService(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<SocialServicesResponseDto> updateSocialService(
+            @PathVariable("id") int id, 
+            @RequestBody SocialServicesUpdateDto updateDto) {
+        SocialServicesResponseDto updatedService = socialServicesService.updateSocialService(id, updateDto);
+        return ResponseEntity.ok(updatedService);
     }
 }

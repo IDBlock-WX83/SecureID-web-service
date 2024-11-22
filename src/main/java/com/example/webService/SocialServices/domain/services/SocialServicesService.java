@@ -14,6 +14,7 @@ import com.example.webService.SocialServices.domain.models.SocialServicesType;
 import com.example.webService.SocialServices.infrastructure.repository.SocialServicesRepository;
 import com.example.webService.SocialServices.presentation.dtos.SocialServicesCreateDto;
 import com.example.webService.SocialServices.presentation.dtos.SocialServicesResponseDto;
+import com.example.webService.SocialServices.presentation.dtos.SocialServicesUpdateDto;
 
 import jakarta.transaction.Transactional;
 
@@ -59,5 +60,21 @@ public class SocialServicesService {
         } else {
             throw new RuntimeException("Social service not found with id: " + id);
         }
+    }
+
+    @Transactional
+    public SocialServicesResponseDto updateSocialService(int id, SocialServicesUpdateDto updateDto) {
+        SocialServices existingService = socialServicesRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Social service not found with id: " + id));
+        
+        existingService.setTitle(updateDto.title);
+        existingService.setImageUrl(updateDto.imageUrl);
+        existingService.setLocation(updateDto.location);
+        existingService.setSchedule(updateDto.schedule);
+        existingService.setExpirationDate(updateDto.expirationDate);
+
+        SocialServices updatedService = socialServicesRepository.save(existingService);
+
+        return socialServicesMapper.toResponseDto(updatedService);
     }
 }
