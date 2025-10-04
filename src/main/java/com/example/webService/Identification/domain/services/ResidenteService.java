@@ -78,7 +78,7 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
         headers.setContentType(MediaType.APPLICATION_JSON); // Establece el tipo de contenido como JSON.
         HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(blockchainRequest, headers); // Crea la entidad de la solicitud.
 
-        String blockchainUrl = "https://secureid-blockchain-tecnology.onrender.com/api/residentes/registrar"; // URL del servicio de la blockchain.
+        String blockchainUrl = "https://blockchain-secure-id.azurewebsites.net/api/residentes/registrar"; // URL del servicio de la blockchain.
 
         String txHash; // Variable para almacenar el hash de la transacción de la blockchain.
         try {
@@ -112,7 +112,7 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
 
     // Función que obtiene todas las identificaciones de los residentes, combinando los datos de la blockchain y la base de datos.
     public List<ResidenteResponseDto> getAllIdentifications() {
-        String blockchainUrl = "https://secureid-blockchain-tecnology.onrender.com/api/residentes"; // URL para obtener todos los residentes de la blockchain.
+        String blockchainUrl = "https://blockchain-secure-id.azurewebsites.net/api/residentes"; // URL para obtener todos los residentes de la blockchain.
         ResponseEntity<Map> response = restTemplate.getForEntity(blockchainUrl, Map.class); // Realiza la solicitud GET a la blockchain.
 
         List<Map<String, Object>> residentesRaw = (List<Map<String, Object>>) response.getBody().get("residentes"); // Obtiene la lista de residentes desde la respuesta.
@@ -139,7 +139,7 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
 
     // Función que obtiene un residente por su ID, combinando los datos de la blockchain y la base de datos.
     public ResidenteResponseDto getIdentificationById(int id) {
-        String blockchainUrl = "https://secureid-blockchain-tecnology.onrender.com/api/residentes/" + id; // URL para obtener un residente de la blockchain por su ID.
+        String blockchainUrl = "https://blockchain-secure-id.azurewebsites.net/api/residentes/" + id; // URL para obtener un residente de la blockchain por su ID.
         ResponseEntity<Map> response = restTemplate.getForEntity(blockchainUrl, Map.class); // Realiza la solicitud GET a la blockchain.
 
         Map<String, Object> raw = (Map<String, Object>) response.getBody().get("residente"); // Obtiene los datos del residente desde la blockchain.
@@ -163,7 +163,7 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
 
     // Función de login por ID digital, que obtiene los datos del residente.
     public ResidenteResponseDto loginByIdDigital(String idDigital) {
-        String blockchainUrl = "https://secureid-blockchain-tecnology.onrender.com/api/residentes/login"; // URL para hacer login con el ID digital.
+        String blockchainUrl = "https://blockchain-secure-id.azurewebsites.net/api/residentes/login"; // URL para hacer login con el ID digital.
 
         Map<String, String> request = new HashMap<>();
         request.put("idDigital", idDigital); // Añade el ID digital a la solicitud.
