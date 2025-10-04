@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 
 import org.springframework.stereotype.Service;
@@ -54,7 +56,11 @@ public class ServicioBasicoService {
     }
 
     public List<ServicioBasicoResponseDto> getSocialServicesByTypeAndNotExpired(ServicioBasicoType type) {
-        return servicioBasicoRepository.findByTypeAndNotExpired(type, LocalDate.now()).stream()
+        // Obtener la fecha actual de Perú
+        LocalDate currentDateInPeru = ZonedDateTime.now(ZoneId.of("America/Lima")).toLocalDate();
+
+        // Pasar la fecha de Perú al repositorio
+        return servicioBasicoRepository.findByTypeAndNotExpired(type, currentDateInPeru).stream()
                 .map(servicioBasicoMapper::toResponseDto)
                 .collect(Collectors.toList());
     }
