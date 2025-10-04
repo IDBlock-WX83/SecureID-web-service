@@ -28,7 +28,7 @@ public class SecureIDApplication {
 			boolean databaseExists = false;
 			while (resultSet.next()) {
 				String databaseName = resultSet.getString(1);
-				if ("secureid".equalsIgnoreCase(databaseName)) {
+				if ("defaultdb".equalsIgnoreCase(databaseName)) {
 					databaseExists = true;
 					break;
 				}
@@ -37,7 +37,7 @@ public class SecureIDApplication {
 
 			// Si la base de datos no existe, crearla
 			if (!databaseExists) {
-				conn.createStatement().execute("CREATE DATABASE secureid");
+				conn.createStatement().execute("CREATE DATABASE defaultdb");
 			}
 		}
 	}
