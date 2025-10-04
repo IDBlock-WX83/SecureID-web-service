@@ -12,3 +12,4 @@ public class ServletInitializer extends SpringBootServletInitializer {
 }
 
 //Execute Swagger: http://localhost:8080/swagger-ui/index.html
+//Execute Swagger; https://secure-id.azurewebsites.net/swagger-ui/index.html
