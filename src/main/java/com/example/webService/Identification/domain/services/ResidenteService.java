@@ -14,6 +14,7 @@ import com.example.webService.Identification.presentation.dtos.ResidenteResponse
 import com.example.webService.SocialServices.presentation.dtos.ServicioBasicoResponseDto; // Importa el DTO de servicios básicos (no se usa en este código).
 import com.fasterxml.jackson.databind.JsonNode; // Importa JsonNode para trabajar con JSON.
 import com.fasterxml.jackson.databind.ObjectMapper; // Importa ObjectMapper para convertir entre objetos Java y JSON.
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*; // Importa clases relacionadas con solicitudes HTTP.
 import org.springframework.stereotype.Service; // Marca la clase como un servicio de Spring.
 import org.springframework.web.client.RestTemplate; // Importa RestTemplate para realizar solicitudes HTTP.
@@ -26,6 +27,7 @@ import java.util.Map; // Importa Map para manejar mapas clave-valor.
 import java.util.stream.Collectors; // Importa Collectors para trabajar con streams.
 
 @Service // Marca la clase como un servicio en Spring.
+@Slf4j
 public class ResidenteService { // Define la clase de servicio ResidenteService.
 
     private final SexoRepository sexoRepository; // Repositorio para acceder a datos de Sexo.
@@ -54,6 +56,9 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
 
     // Función para crear una identificación, que incluye el registro de un residente en la blockchain y en la base de datos.
     public ResidenteResponseDto createIdentification(ResidenteCreateDto createDto) {
+        long startTime = System.currentTimeMillis(); // Tiempo de inicio
+        log.info("Start createIdentification with ID: {}", createDto.idDigital);
+
         String idDigital = generarIdentificadorUnico(); // Genera un identificador único para el residente.
 
         // Prepara los datos que se enviarán a la blockchain para registrar al residente.
@@ -98,24 +103,25 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
         // Se realiza el login utilizando el ID digital y se devuelve el DTO con el hash de la transacción.
         ResidenteResponseDto dto = loginByIdDigital(idDigital);
         dto.txHash = txHash; // Asigna el hash de la transacción al DTO.
-        return dto; // Retorna el DTO con los datos del residente.
-    }
 
-    // Función para generar un identificador único (8 dígitos aleatorios).
-    private String generarIdentificadorUnico() {
-        StringBuilder sb = new StringBuilder(8); // Crea un StringBuilder para el ID.
-        for (int i = 0; i < 8; i++) {
-            sb.append((int) (Math.random() * 10)); // Genera un número aleatorio entre 0 y 9.
-        }
-        return sb.toString(); // Retorna el identificador único generado.
+        long endTime = System.currentTimeMillis(); // Tiempo de fin
+        log.info("End createIdentification. Latency: {} ms", endTime - startTime); // Log de latencia
+
+        return dto;
     }
 
     // Función que obtiene todas las identificaciones de los residentes, combinando los datos de la blockchain y la base de datos.
     public List<ResidenteResponseDto> getAllIdentifications() {
+        long startTime = System.currentTimeMillis(); // Tiempo de inicio
+        log.info("Start getAllIdentifications");
+
         String blockchainUrl = "https://blockchain-secure-id.azurewebsites.net/api/residentes"; // URL para obtener todos los residentes de la blockchain.
         ResponseEntity<Map> response = restTemplate.getForEntity(blockchainUrl, Map.class); // Realiza la solicitud GET a la blockchain.
 
         List<Map<String, Object>> residentesRaw = (List<Map<String, Object>>) response.getBody().get("residentes"); // Obtiene la lista de residentes desde la respuesta.
+
+        long endTime = System.currentTimeMillis(); // Tiempo de fin
+        log.info("End getAllIdentifications. Latency: {} ms", endTime - startTime); // Log de latencia
 
         // Combinamos los datos de la blockchain con los de la base de datos.
         return residentesRaw.stream()
@@ -139,6 +145,9 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
 
     // Función que obtiene un residente por su ID, combinando los datos de la blockchain y la base de datos.
     public ResidenteResponseDto getIdentificationById(int id) {
+        long startTime = System.currentTimeMillis(); // Tiempo de inicio
+        log.info("Start getIdentificationById with ID: {}", id);
+
         String blockchainUrl = "https://blockchain-secure-id.azurewebsites.net/api/residentes/" + id; // URL para obtener un residente de la blockchain por su ID.
         ResponseEntity<Map> response = restTemplate.getForEntity(blockchainUrl, Map.class); // Realiza la solicitud GET a la blockchain.
 
@@ -157,12 +166,17 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
             dto.setFotoHash(residenteDb.getFotoHash());
             dto.setFirmaHash(residenteDb.getFirmaHash());
         }
+        long endTime = System.currentTimeMillis(); // Tiempo de fin
+        log.info("End getIdentificationById. Latency: {} ms", endTime - startTime); // Log de latencia
 
-        return dto; // Retorna el DTO con los datos combinados.
+        return dto;
     }
 
     // Función de login por ID digital, que obtiene los datos del residente.
     public ResidenteResponseDto loginByIdDigital(String idDigital) {
+        long startTime = System.currentTimeMillis(); // Tiempo de inicio
+        log.info("Start loginByIdDigital with ID: {}", idDigital);
+
         String blockchainUrl = "https://blockchain-secure-id.azurewebsites.net/api/residentes/login"; // URL para hacer login con el ID digital.
 
         Map<String, String> request = new HashMap<>();
@@ -178,12 +192,49 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
 
         Map<String, Object> raw = (Map<String, Object>) response.getBody().get("residente"); // Obtiene los datos del residente.
 
-        return mapBlockchainResidente(raw); // Mapea los datos obtenidos de la blockchain a un DTO y lo retorna.
+        ResidenteResponseDto result = mapBlockchainResidente(raw); // Mapea los datos obtenidos de la blockchain a un DTO.
+
+        long endTime = System.currentTimeMillis(); // Tiempo de fin
+        log.info("End loginByIdDigital. Latency: {} ms", endTime - startTime); // Log de latencia
+
+        return result;
     }
 
     // Función que obtiene todas las identificaciones, tanto para administradores como no administradores.
     public List<ResidenteResponseDto> getAllIdentificationsIsAdminOrNoAdmin() {
-        return getAllIdentifications(); // Llama a la función que obtiene todas las identificaciones.
+        long startTime = System.currentTimeMillis(); // Tiempo de inicio
+        log.info("Start getAllIdentificationsIsAdminOrNoAdmin");
+
+        List<ResidenteResponseDto> result = getAllIdentifications(); // Llama a la función que obtiene todas las identificaciones.
+
+        long endTime = System.currentTimeMillis(); // Tiempo de fin
+        log.info("End getAllIdentificationsIsAdminOrNoAdmin. Latency: {} ms", endTime - startTime); // Log de latencia
+
+        return result;
+    }
+
+    // Función que guarda las imágenes de un residente en la base de datos.
+    public ResidenteResponseDto saveImages(ResidenteCreateDto createDto) {
+        long startTime = System.currentTimeMillis(); // Tiempo de inicio
+        log.info("Start saveImages for ID: {}", createDto.idDigital);
+
+        Residente entity = residenteMapper.toEntity(createDto); // Convierte el DTO a una entidad Residente.
+        Residente savedEntity = residenteRepository.save(entity); // Guarda la entidad en la base de datos.
+        ResidenteResponseDto result = residenteMapper.toResponseDto(savedEntity); // Convierte la entidad guardada a un DTO y lo retorna.
+
+        long endTime = System.currentTimeMillis(); // Tiempo de fin
+        log.info("End saveImages. Latency: {} ms", endTime - startTime); // Log de latencia
+
+        return result;
+    }
+
+    // Función para generar un identificador único (8 dígitos aleatorios).
+    private String generarIdentificadorUnico() {
+        StringBuilder sb = new StringBuilder(8); // Crea un StringBuilder para el ID.
+        for (int i = 0; i < 8; i++) {
+            sb.append((int) (Math.random() * 10)); // Genera un número aleatorio entre 0 y 9.
+        }
+        return sb.toString(); // Retorna el identificador único generado.
     }
 
     // Función auxiliar para mapear los datos de la blockchain a un DTO de ResidenteResponseDto.
@@ -224,12 +275,5 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
         dto.distrito = distritoRepository.findById(distritoId).orElse(null); // Busca el distrito en la base de datos.
 
         return dto; // Retorna el DTO con los datos combinados.
-    }
-
-    // Función que guarda las imágenes de un residente en la base de datos.
-    public ResidenteResponseDto saveImages(ResidenteCreateDto createDto) {
-        Residente entity = residenteMapper.toEntity(createDto); // Convierte el DTO a una entidad Residente.
-        Residente savedEntity = residenteRepository.save(entity); // Guarda la entidad en la base de datos.
-        return residenteMapper.toResponseDto(savedEntity); // Convierte la entidad guardada a un DTO y lo retorna.
     }
 }
