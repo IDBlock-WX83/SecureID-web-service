@@ -1,0 +1,156 @@
+2025-10-18 23:39:43 - [INFO] - c.e.webService.SecureIDApplication - Starting SecureIDApplication using Java 17.0.9 with PID 14760 (C:\Users\arana\OneDrive\Escritorio\SecureID-web-service\target\classes started by Wilver_AR in C:\Users\arana\OneDrive\Escritorio\SecureID-web-service)
+2025-10-18 23:39:43 - [DEBUG] - c.e.webService.SecureIDApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2025-10-18 23:39:43 - [INFO] - c.e.webService.SecureIDApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-18 23:39:44 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-18 23:39:44 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 294 ms. Found 8 JPA repository interfaces.
+2025-10-18 23:39:45 - [INFO] - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-18 23:39:45 - [INFO] - o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-18 23:39:45 - [INFO] - o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-18 23:39:45 - [INFO] - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-10-18 23:39:45 - [INFO] - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-18 23:39:45 - [INFO] - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2597 ms
+2025-10-18 23:39:46 - [INFO] - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-18 23:39:46 - [INFO] - org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-10-18 23:39:46 - [INFO] - o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-18 23:39:46 - [INFO] - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-18 23:39:46 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-18 23:39:48 - [INFO] - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@70ee9d31
+2025-10-18 23:39:48 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-18 23:39:50 - [INFO] - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-18 23:39:54 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:39:54 - [INFO] - o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-18 23:39:55 - [WARN] - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-18 23:39:56 - [INFO] - o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-18 23:39:56 - [INFO] - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-18 23:39:56 - [INFO] - c.e.webService.SecureIDApplication - Started SecureIDApplication in 13.722 seconds (process running for 15.14)
+2025-10-18 23:40:10 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:40:10 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-18 23:40:10 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-18 23:40:14 - [INFO] - c.e.webService.SecureIDApplication - Starting SecureIDApplication using Java 17.0.9 with PID 10336 (C:\Users\arana\OneDrive\Escritorio\SecureID-web-service\target\classes started by Wilver_AR in C:\Users\arana\OneDrive\Escritorio\SecureID-web-service)
+2025-10-18 23:40:14 - [DEBUG] - c.e.webService.SecureIDApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2025-10-18 23:40:14 - [INFO] - c.e.webService.SecureIDApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-18 23:40:15 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-18 23:40:16 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 291 ms. Found 8 JPA repository interfaces.
+2025-10-18 23:40:16 - [INFO] - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-18 23:40:16 - [INFO] - o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-18 23:40:16 - [INFO] - o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-18 23:40:16 - [INFO] - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-10-18 23:40:16 - [INFO] - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-18 23:40:16 - [INFO] - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2469 ms
+2025-10-18 23:40:17 - [INFO] - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-18 23:40:17 - [INFO] - org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-10-18 23:40:17 - [INFO] - o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-18 23:40:17 - [INFO] - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-18 23:40:17 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-18 23:40:19 - [INFO] - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f122cdc
+2025-10-18 23:40:19 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-18 23:40:21 - [INFO] - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-18 23:40:24 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:40:25 - [INFO] - o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-18 23:40:26 - [WARN] - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-18 23:40:27 - [INFO] - o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-18 23:40:27 - [INFO] - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-18 23:40:27 - [INFO] - c.e.webService.SecureIDApplication - Started SecureIDApplication in 13.421 seconds (process running for 14.849)
+2025-10-18 23:40:39 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:40:39 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-18 23:40:39 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-18 23:40:43 - [INFO] - c.e.webService.SecureIDApplication - Starting SecureIDApplication using Java 17.0.9 with PID 13608 (C:\Users\arana\OneDrive\Escritorio\SecureID-web-service\target\classes started by Wilver_AR in C:\Users\arana\OneDrive\Escritorio\SecureID-web-service)
+2025-10-18 23:40:43 - [DEBUG] - c.e.webService.SecureIDApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2025-10-18 23:40:43 - [INFO] - c.e.webService.SecureIDApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-18 23:40:44 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-18 23:40:44 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 292 ms. Found 8 JPA repository interfaces.
+2025-10-18 23:40:45 - [INFO] - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-18 23:40:45 - [INFO] - o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-18 23:40:45 - [INFO] - o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-18 23:40:45 - [INFO] - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-10-18 23:40:45 - [INFO] - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-18 23:40:45 - [INFO] - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2497 ms
+2025-10-18 23:40:46 - [INFO] - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-18 23:40:46 - [INFO] - org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-10-18 23:40:46 - [INFO] - o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-18 23:40:46 - [INFO] - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-18 23:40:46 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-18 23:40:48 - [INFO] - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@54286339
+2025-10-18 23:40:48 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-18 23:40:50 - [INFO] - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-18 23:40:54 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:40:55 - [INFO] - o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-18 23:40:56 - [WARN] - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-18 23:40:56 - [INFO] - o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-18 23:40:56 - [INFO] - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-18 23:40:56 - [INFO] - c.e.webService.SecureIDApplication - Started SecureIDApplication in 14.03 seconds (process running for 15.659)
+2025-10-18 23:41:04 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:41:04 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-18 23:41:04 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-18 23:42:35 - [INFO] - o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.webService.SecureIDApplicationTests]: SecureIDApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-18 23:42:35 - [INFO] - o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.webService.SecureIDApplication for test class com.example.webService.SecureIDApplicationTests
+2025-10-18 23:42:36 - [INFO] - c.e.w.SecureIDApplicationTests - Starting SecureIDApplicationTests using Java 17.0.9 with PID 12292 (started by Wilver_AR in C:\Users\arana\OneDrive\Escritorio\SecureID-web-service)
+2025-10-18 23:42:36 - [DEBUG] - c.e.w.SecureIDApplicationTests - Running with Spring Boot v3.3.5, Spring v6.1.14
+2025-10-18 23:42:36 - [INFO] - c.e.w.SecureIDApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-18 23:42:38 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-18 23:42:39 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 506 ms. Found 8 JPA repository interfaces.
+2025-10-18 23:42:40 - [INFO] - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-18 23:42:40 - [INFO] - org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-10-18 23:42:40 - [INFO] - o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-18 23:42:41 - [INFO] - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-18 23:42:41 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-18 23:42:42 - [INFO] - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@492c8137
+2025-10-18 23:42:42 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-18 23:42:45 - [INFO] - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-18 23:42:49 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:42:50 - [INFO] - o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-18 23:42:51 - [WARN] - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-18 23:42:52 - [INFO] - c.e.w.SecureIDApplicationTests - Started SecureIDApplicationTests in 16.142 seconds (process running for 18.79)
+2025-10-18 23:42:53 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:42:53 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-18 23:42:53 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-18 23:45:41 - [INFO] - o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.webService.SecureIDApplicationTests]: SecureIDApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-18 23:45:41 - [INFO] - o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.webService.SecureIDApplication for test class com.example.webService.SecureIDApplicationTests
+2025-10-18 23:45:42 - [INFO] - c.e.w.SecureIDApplicationTests - Starting SecureIDApplicationTests using Java 17.0.9 with PID 1284 (started by Wilver_AR in C:\Users\arana\OneDrive\Escritorio\SecureID-web-service)
+2025-10-18 23:45:42 - [DEBUG] - c.e.w.SecureIDApplicationTests - Running with Spring Boot v3.3.5, Spring v6.1.14
+2025-10-18 23:45:42 - [INFO] - c.e.w.SecureIDApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-18 23:45:44 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-18 23:45:45 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 323 ms. Found 8 JPA repository interfaces.
+2025-10-18 23:45:46 - [INFO] - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-18 23:45:46 - [INFO] - org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-10-18 23:45:46 - [INFO] - o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-18 23:45:47 - [INFO] - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-18 23:45:47 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-18 23:45:49 - [INFO] - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a58e0e9
+2025-10-18 23:45:49 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-18 23:45:52 - [INFO] - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-18 23:45:55 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:45:57 - [INFO] - o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-18 23:45:58 - [WARN] - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-18 23:45:59 - [INFO] - c.e.w.SecureIDApplicationTests - Started SecureIDApplicationTests in 17.569 seconds (process running for 20.521)
+2025-10-18 23:46:00 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:46:00 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-18 23:46:00 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-18 23:48:09 - [INFO] - c.e.webService.SecureIDApplication - Starting SecureIDApplication using Java 17.0.9 with PID 1548 (C:\Users\arana\OneDrive\Escritorio\SecureID-web-service\target\classes started by Wilver_AR in C:\Users\arana\OneDrive\Escritorio\SecureID-web-service)
+2025-10-18 23:48:09 - [DEBUG] - c.e.webService.SecureIDApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2025-10-18 23:48:09 - [INFO] - c.e.webService.SecureIDApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-18 23:48:11 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-18 23:48:11 - [INFO] - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 313 ms. Found 8 JPA repository interfaces.
+2025-10-18 23:48:12 - [INFO] - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-18 23:48:12 - [INFO] - o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-18 23:48:12 - [INFO] - o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-18 23:48:12 - [INFO] - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-10-18 23:48:12 - [INFO] - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-18 23:48:12 - [INFO] - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2601 ms
+2025-10-18 23:48:12 - [INFO] - o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-18 23:48:12 - [INFO] - org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-10-18 23:48:12 - [INFO] - o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-18 23:48:13 - [INFO] - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-18 23:48:13 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-18 23:48:15 - [INFO] - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2110684a
+2025-10-18 23:48:15 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-18 23:48:17 - [INFO] - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-18 23:48:21 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:48:21 - [INFO] - o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-18 23:48:22 - [WARN] - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-18 23:48:23 - [INFO] - o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-18 23:48:23 - [INFO] - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-18 23:48:23 - [INFO] - c.e.webService.SecureIDApplication - Started SecureIDApplication in 14.23 seconds (process running for 16.012)
+2025-10-18 23:48:36 - [INFO] - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-18 23:48:36 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-18 23:48:36 - [INFO] - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
