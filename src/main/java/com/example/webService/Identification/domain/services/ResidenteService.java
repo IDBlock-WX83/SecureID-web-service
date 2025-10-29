@@ -20,7 +20,9 @@ import org.springframework.stereotype.Service; // Marca la clase como un servici
 import org.springframework.web.client.RestTemplate; // Importa RestTemplate para realizar solicitudes HTTP.
 
 import java.time.Instant; // Importa Instant para manejar fechas.
+import java.time.LocalDate;
 import java.time.ZoneId; // Importa ZoneId para convertir fechas con zonas horarias.
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap; // Importa HashMap para almacenar pares clave-valor.
 import java.util.List; // Importa List para manejar listas de objetos.
 import java.util.Map; // Importa Map para manejar mapas clave-valor.
@@ -54,6 +56,10 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
         this.residenteMapper = residenteMapper;
     }
 
+    // Fecha de referencia: 1900-01-01
+    private static final LocalDate REFERENCIA_FECHA = LocalDate.of(1900, 1, 1);
+
+
     // Función para crear una identificación, que incluye el registro de un residente en la blockchain y en la base de datos.
     public ResidenteResponseDto createIdentification(ResidenteCreateDto createDto) {
         long startTime = System.currentTimeMillis(); // Tiempo de inicio
@@ -66,10 +72,19 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
         blockchainRequest.put("preNombres", createDto.preNombres); // Nombres del residente.
         blockchainRequest.put("primerApellido", createDto.primerApellido); // Primer apellido.
         blockchainRequest.put("segundoApellido", createDto.segundoApellido); // Segundo apellido.
-        blockchainRequest.put("fechaNacimiento", createDto.fechaNacimiento.toEpochDay() * 86400); // Convierte la fecha de nacimiento a segundos desde la época.
-        blockchainRequest.put("fechaInscripcion", createDto.fechaInscripcion.toEpochDay() * 86400); // Convierte la fecha de inscripción a segundos desde la época.
-        //blockchainRequest.put("fechaNacimiento", createDto.fechaNacimiento); // Convierte la fecha de nacimiento a segundos desde la época.
-        //blockchainRequest.put("fechaInscripcion", createDto.fechaInscripcion); // Convierte la fecha de inscripción a segundos desde la época.
+
+        //blockchainRequest.put("fechaNacimiento", createDto.fechaNacimiento.toEpochDay() * 86400); // Convierte la fecha de nacimiento a segundos desde la época.
+        //blockchainRequest.put("fechaInscripcion", createDto.fechaInscripcion.toEpochDay() * 86400); // Convierte la fecha de inscripción a segundos desde la época.
+
+        // Convertir la fecha de nacimiento a días desde 1900-01-01
+        long fechaNacimientoDias = ChronoUnit.DAYS.between(REFERENCIA_FECHA, createDto.fechaNacimiento);
+        // Convertir la fecha de inscripción a días desde 1900-01-01
+        long fechaInscripcionDias = ChronoUnit.DAYS.between(REFERENCIA_FECHA, createDto.fechaInscripcion);
+
+        blockchainRequest.put("fechaNacimiento", fechaNacimientoDias);  // Días desde 1900-01-01
+        blockchainRequest.put("fechaInscripcion", fechaInscripcionDias); // Días desde 1900-01-01
+
+
         blockchainRequest.put("direccion", createDto.direccion); // Dirección del residente.
         blockchainRequest.put("telefonoCelular", createDto.telefonoCelular != null ? createDto.telefonoCelular : ""); // Teléfono celular, si está disponible.
 
@@ -131,6 +146,19 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
                     // Convierte el residente de la blockchain en un DTO.
                     ResidenteResponseDto dto = mapBlockchainResidente(blockchainResidente);
 
+                    // Recuperar los días desde 1900-01-01 (de la blockchain)
+                    long fechaNacimientoDias = convertToLong(blockchainResidente.get("fechaNacimiento"));
+                    long fechaInscripcionDias = convertToLong(blockchainResidente.get("fechaInscripcion"));
+
+                    // Convertir los días desde la fecha de referencia 1900-01-01 a LocalDate
+                    LocalDate fechaNacimiento = convertirADate(fechaNacimientoDias);
+                    LocalDate fechaInscripcion = convertirADate(fechaInscripcionDias);
+
+                    // Asignar las fechas al DTO
+                    dto.setFechaNacimiento(fechaNacimiento);
+                    dto.setFechaInscripcion(fechaInscripcion);
+
+
                     // Busca el residente en la base de datos utilizando el ID digital.
                     Residente residenteDb = residenteRepository.findByIdDigital(dto.getIdDigital());
 
@@ -144,6 +172,25 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
                 })
                 .collect(Collectors.toList()); // Recoge todos los resultados en una lista.
     }
+
+    // Función auxiliar para convertir días desde 1900-01-01 a LocalDate
+    private LocalDate convertirADate(long diasDesdeReferencia) {
+        // Fecha de referencia: 1900-01-01
+        LocalDate referenciaFecha = LocalDate.of(1900, 1, 1);
+
+        // Sumar los días desde la referencia
+        return referenciaFecha.plusDays(diasDesdeReferencia);
+    }
+
+    // Función auxiliar para convertir los valores obtenidos a Long (en caso de ser Integer)
+    private long convertToLong(Object value) {
+        if (value instanceof Integer) {
+            return ((Integer) value).longValue();  // Convertimos el Integer a Long
+        }
+        return (long) value;  // Si ya es Long, lo dejamos tal cual
+    }
+
+
 
     // Función que obtiene un residente por su ID, combinando los datos de la blockchain y la base de datos.
     public ResidenteResponseDto getIdentificationById(int id) {
