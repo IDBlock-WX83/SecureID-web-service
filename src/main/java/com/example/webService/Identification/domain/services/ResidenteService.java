@@ -66,10 +66,10 @@ public class ResidenteService { // Define la clase de servicio ResidenteService.
         blockchainRequest.put("preNombres", createDto.preNombres); // Nombres del residente.
         blockchainRequest.put("primerApellido", createDto.primerApellido); // Primer apellido.
         blockchainRequest.put("segundoApellido", createDto.segundoApellido); // Segundo apellido.
-        //blockchainRequest.put("fechaNacimiento", createDto.fechaNacimiento.toEpochDay() * 86400); // Convierte la fecha de nacimiento a segundos desde la época.
-        //blockchainRequest.put("fechaInscripcion", createDto.fechaInscripcion.toEpochDay() * 86400); // Convierte la fecha de inscripción a segundos desde la época.
-        blockchainRequest.put("fechaNacimiento", createDto.fechaNacimiento); // Convierte la fecha de nacimiento a segundos desde la época.
-        blockchainRequest.put("fechaInscripcion", createDto.fechaInscripcion); // Convierte la fecha de inscripción a segundos desde la época.
+        blockchainRequest.put("fechaNacimiento", createDto.fechaNacimiento.toEpochDay() * 86400); // Convierte la fecha de nacimiento a segundos desde la época.
+        blockchainRequest.put("fechaInscripcion", createDto.fechaInscripcion.toEpochDay() * 86400); // Convierte la fecha de inscripción a segundos desde la época.
+        //blockchainRequest.put("fechaNacimiento", createDto.fechaNacimiento); // Convierte la fecha de nacimiento a segundos desde la época.
+        //blockchainRequest.put("fechaInscripcion", createDto.fechaInscripcion); // Convierte la fecha de inscripción a segundos desde la época.
         blockchainRequest.put("direccion", createDto.direccion); // Dirección del residente.
         blockchainRequest.put("telefonoCelular", createDto.telefonoCelular != null ? createDto.telefonoCelular : ""); // Teléfono celular, si está disponible.
 
